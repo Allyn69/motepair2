@@ -17,15 +17,15 @@ module.exports =
     serverAddress:
       title: 'Server address'
       type: 'string'
-      default: 'wss.motepair2.com'
+      default: 'motepair2-phara0h.rhcloud.com'
     serverPort:
       title: 'Server port number'
       type: 'integer'
-      default: 80
+      default: 8443
     secureConnection:
       title: 'Secure Connection'
       type: 'boolean'
-      default: false
+      default: true
     userEmail:
       title: 'Email address'
       type: 'string'

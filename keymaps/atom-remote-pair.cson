@@ -8,5 +8,4 @@
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
 'atom-workspace':
-  'ctrl-alt-g': 'motepair:connect'
-
+  'ctrl-alt-g': 'motepair2:connect'

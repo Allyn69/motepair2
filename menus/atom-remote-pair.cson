@@ -3,15 +3,15 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'Motepair'
+      'label': 'Motepair2'
       'submenu': [
         {
           'label': 'Connect'
-          'command': 'motepair:connect'
+          'command': 'motepair2:connect'
         },
         {
           'label': 'Disconnect'
-          'command': 'motepair:disconnect'
+          'command': 'motepair2:disconnect'
         }
       ]
     ]

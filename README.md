@@ -27,8 +27,8 @@ Features:
   - Selection
   - Remote Cursor
   - Gravatar
-  - Go to Motepair settings to enable it. Just type your email than your pair will see your photo.
-  - Encrypted Connection
+  - Go to Motepair2 settings to enable it. Just type your email than your pair will see your photo.
+  - Encrypted Connection and No Tracking on the default server. (unlike motepair)
   - Optional Mouse and Tab Following
 
 

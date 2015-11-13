@@ -17,7 +17,7 @@ module.exports =
     serverAddress:
       title: 'Server address'
       type: 'string'
-      default: 'wss.motepair.com'
+      default: 'wss.motepair2.com'
     serverPort:
       title: 'Server port number'
       type: 'integer'
@@ -46,9 +46,9 @@ module.exports =
 
 
   setDefaultValues: ->
-    @address = atom.config.get('motepair.serverAddress')
-    @portNumber = atom.config.get('motepair.serverPort')
-    @secureConnection = atom.config.get('motepair.secureConnection')
+    @address = atom.config.get('motepair2.serverAddress')
+    @portNumber = atom.config.get('motepair2.serverPort')
+    @secureConnection = atom.config.get('motepair2.secureConnection')
 
   createSocketConnection: ->
     @setDefaultValues()
@@ -59,8 +59,8 @@ module.exports =
 
   activate: ->
     @setDefaultValues()
-    atom.commands.add 'atom-workspace', "motepair:connect", => @startSession()
-    atom.commands.add 'atom-workspace', "motepair:disconnect", => @deactivate()
+    atom.commands.add 'atom-workspace', "motepair2:connect", => @startSession()
+    atom.commands.add 'atom-workspace', "motepair2:disconnect", => @deactivate()
 
   startSession: ->
     @view = new NewSessionView()
@@ -71,7 +71,7 @@ module.exports =
         if @view.miniEditor.getText() isnt ''
           @connect(@view.miniEditor.getText())
         else
-          atom.notifications.addWarning("Motepair: Session ID can not be empty.")
+          atom.notifications.addWarning("Motepair2: Session ID can not be empty.")
 
   setupHeartbeat: ->
     @heartbeatId = setInterval =>
@@ -90,7 +90,7 @@ module.exports =
     @ws ?= @createSocketConnection()
 
     @ws.on "open", =>
-      atom.notifications.addSuccess("Motepair: Session started.")
+      atom.notifications.addSuccess("Motepair2: Session started.")
       @setupHeartbeat()
       @atom_share = new AtomShare(@ws)
       @atom_share.start(sessionId)
@@ -99,7 +99,7 @@ module.exports =
       @event_handler.listen()
 
       @event_handler.emitter.on 'socket-not-opened', =>
-        atom.notifications.addWarning("Motepair: Connection get lost.")
+        atom.notifications.addWarning("Motepair2: Connection get lost.")
         @deactivate()
 
       @sessionStatusView = new SessionView
@@ -108,7 +108,7 @@ module.exports =
 
     @ws.on 'error', (e) =>
       console.log('error', e)
-      atom.notifications.addError("Motepair: Could not connect to server.")
+      atom.notifications.addError("Motepair2: Could not connect to server.")
       @ws.close()
       @ws = null
 
@@ -116,11 +116,11 @@ module.exports =
   deactivate: ->
     clearInterval(@heartbeatId)
     if @ws?
-      atom.notifications.addSuccess("Motepair: Disconnected from session.")
+      atom.notifications.addSuccess("Motepair2: Disconnected from session.")
       @sessionStatusView.hide()
       @ws.close()
       @ws = null
       @event_handler.subscriptions.dispose()
       @atom_share.subscriptions.dispose()
     else
-      atom.notifications.addWarning("Motepair: No active session found.")
+      atom.notifications.addWarning("Motepair2: No active session found.")

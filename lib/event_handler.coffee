@@ -12,7 +12,7 @@ class EventHandler
     @workspace = atom.workspace
     @subscriptions = new CompositeDisposable
     @localChange = false
-    @userEmail = atom.config.get('motepair.userEmail')
+    @userEmail = atom.config.get('motepair2.userEmail')
     @lastCursorChange = new Date().getTime()
     @remoteAction = false
 
@@ -25,7 +25,7 @@ class EventHandler
     @workspace.getPaneItems().forEach (item) ->
       openedItem  = item if item.getPath? and item.getPath()?.indexOf(data.file) >= 0
 
-    if !openedItem or atom.config.get('motepair.followTabs')
+    if !openedItem or atom.config.get('motepair2.followTabs')
       @remoteAction = true
       @workspace.open(path)
       setTimeout =>
@@ -66,7 +66,7 @@ class EventHandler
 
     @setGravatarDuration(editor)
 
-    if atom.config.get('motepair.followMouse')
+    if atom.config.get('motepair2.followMouse')
       editor.scrollToBufferPosition(data.cursor, {center: true})
 
   setGravatarDuration: (editor) ->
@@ -100,7 +100,7 @@ class EventHandler
       event = JSON.parse(event)
 
       if @["on#{event.type}"]?
-        if atom.config.get('motepair.syncTabs') or event.type not in @syncTabsEvents
+        if atom.config.get('motepair2.syncTabs') or event.type not in @syncTabsEvents
           @["on#{event.type}"](event.data)
 
     @subscriptions.add @workspace.observeTextEditors (editor) =>

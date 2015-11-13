@@ -12,9 +12,9 @@ describe "EventHandler", ->
   describe "Remote callbacks", ->
     describe "::onopen", ->
       beforeEach ->
-        atom.config.set('motepair.syncTabs', true)
+        atom.config.set('motepair2.syncTabs', true)
       afterEach ->
-        atom.config.set('motepair.syncTabs', false)
+        atom.config.set('motepair2.syncTabs', false)
 
       it "should call onopen method", ->
         spyOn(@event_handler, 'onopen')
@@ -41,9 +41,9 @@ describe "EventHandler", ->
 
     describe "::onclose", ->
       beforeEach ->
-        atom.config.set('motepair.syncTabs', true)
+        atom.config.set('motepair2.syncTabs', true)
       afterEach ->
-        atom.config.set('motepair.syncTabs', false)
+        atom.config.set('motepair2.syncTabs', false)
 
       it "should call onclose method", ->
         spyOn(@event_handler, 'onclose')

@@ -1,7 +1,7 @@
 {
   "name": "motepair2",
   "main": "./lib/main",
-  "version": "0.35.0",
+  "version": "0.36.0",
   "description": "A Atom package to remote pair programming. A fork of motepair with more features.",
   "keywords": [
     "remote",

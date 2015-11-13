@@ -1,8 +1,8 @@
 {
-  "name": "motepair",
+  "name": "motepair2",
   "main": "./lib/main",
-  "version": "0.21.0",
-  "description": "A Atom package to remote pair programming.",
+  "version": "0.3.0",
+  "description": "A Atom package to remote pair programming. A fork of motepair with more features.",
   "keywords": [
     "remote",
     "pair",
@@ -18,9 +18,13 @@
     {
       "name": "Leon Maia",
       "email": "hi@leonmaia.com"
+    },
+    {
+      "name": "Jt Whissel",
+      "email": "jtwhissel@gmail.com"
     }
   ],
-  "repository": "https://github.com/motepair/motepair",
+  "repository": "https://github.com/phara0h/motepair2",
   "license": "GPL",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
